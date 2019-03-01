@@ -18,7 +18,7 @@ products_links.each_with_index do |product, i|
   pages << {
       page_type: 'product_details',
       method: 'GET',
-      url: product.first+ "?search=#{page['vars']['search_term']}&rank=#{i + 1}",
+      url: product.first+ "?search=#{page['vars']['search_term']}&page=#{page['vars']['page']}&rank=#{i + 1}",
       vars: {
           'input_type' => page['vars']['input_type'],
           'search_term' => page['vars']['search_term'],
