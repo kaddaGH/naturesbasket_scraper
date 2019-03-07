@@ -12,7 +12,7 @@ availability = (content.include?"SOLD OUT")?"":"1"
 brand = body.at("#divProductBucketParamValpopup").attr('metatitle').gsub(/\-.+?\Z/,'').strip rescue ''
 
 
-description = body.css("#lblLongDescription").text.gsub(/[^\n,]+/,' ')
+description = body.css("#lblLongDescription").text.gsub(/[\n\s,]+/,' ')
 
 image_url = body.css("#impProductsImage").attr("src")
 
