@@ -1,6 +1,6 @@
 require './lib/headers'
 
-products_ids = content.scan(/(?<=pro-id_)(.+?)(?=')/)
+products_ids = content.scan(/(?<=AddToMyListPopUpHtml\()(.+?)(?=\))/)
 
 scrape_url_nbr_products = content[/\d+\Z/]
 

@@ -2,21 +2,21 @@
 body = Nokogiri.HTML(content)
 
 
-id = page['url'][/(?<=\/)([^\/]+?)(?=\?)/]
+id = content[/(?<=pro-id=')(.+?)(?=')/]
 title = body.at("h1").text.gsub(/[\n\s]+/,' ').strip rescue ''
 
 availability = (content.include?"SOLD OUT")?"":"1"
 
 
 
-brand = body.at("title").text.gsub(/\-.+?\Z/,'').strip rescue ''
+brand = body.at("#divProductBucketParamValpopup").attr('metatitle').gsub(/\-.+?\Z/,'').strip rescue ''
 
 
-description = body.css("#lblLongDescription").text.gsub(/[\s\n,]+/,' ')
+description = body.css("#lblLongDescription").text.gsub(/[^\n,]+/,' ')
 
 image_url = body.css("#impProductsImage").attr("src")
 
-price = body.css(".search_PSellingP").text.gsub(/,/,'.')
+price = body.css(".search_PSellingP").text.gsub(/,/,'.').gsub(/[^\d\.]/,'')
 
 
 item_size = nil
@@ -40,6 +40,7 @@ in_pack = nil
       /(\d*[\.,]?\d+)\s?([Ll]itre)/,
       /(\d*[\.,]?\d+)\s?([Ss]ervings)/,
       /(\d*[\.,]?\d+)\s?([Pp]acket\(?s?\)?)/,
+      /(\d*[\.,]?\d+)\s?([Kk][Gg])/,
       /(\d*[\.,]?\d+)\s?([Cc]apsules)/,
       /(\d*[\.,]?\d+)\s?([Tt]ablets)/,
       /(\d*[\.,]?\d+)\s?([Tt]ubes)/,
