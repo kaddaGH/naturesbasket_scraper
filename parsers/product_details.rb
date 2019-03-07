@@ -2,14 +2,14 @@
 body = Nokogiri.HTML(content)
 
 
-id = content[/(?<=pro-id=')(.+?)(?=')/]
+id = page['url'][/(?<=ProductVariantID\=)(\d+?)(?=\&)/]
 title = body.at("h1").text.gsub(/[\n\s]+/,' ').strip rescue ''
 
 availability = (content.include?"SOLD OUT")?"":"1"
 
 
 
-brand = body.at("#divProductBucketParamValpopup").attr('metatitle').gsub(/\-.+?\Z/,'').strip rescue ''
+brand = title[/([^\-]+)(?=\-[^\-]+\Z)/].strip
 
 
 description = body.css("#lblLongDescription").text.gsub(/[\n\s,]+/,' ')
