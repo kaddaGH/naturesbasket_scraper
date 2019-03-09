@@ -16,7 +16,7 @@ description = body.css("#lblLongDescription").text.gsub(/[\n\s,]+/,' ')
 
 image_url = body.css("#impProductsImage").attr("src")
 
-price = body.css(".search_PSellingP").text.gsub(/,/,'.').gsub(/[^\d\.]/,'')
+price = page['vars']['price']
 
 
 item_size = nil
@@ -74,7 +74,6 @@ end
       /(\d+)\s?([Ss]tuks)/i,
       /(\d+)\s?([Pp]ak)/i,
       /(\d+)\s?([Pp]ack)/i,
-      /[Pp]ack\s*of\s*(\d+)/,
   ].find {|regexp| size_text =~ regexp}
   in_pack = $1
 

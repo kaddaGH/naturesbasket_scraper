@@ -1,6 +1,7 @@
 require './lib/headers'
 
 products_ids = content.scan(/(?<=AddToMyListPopUpHtml\()(.+?)(?=\))/)
+prices= content.scan(/(?<=span>)([^<>]+?)(?=<\/span><\/div><\/div><div\s+class='add-btn-sec)/)
 
 scrape_url_nbr_products = content[/\d+\Z/]
 
@@ -26,6 +27,7 @@ products_ids.each_with_index do |product_id, i|
           'SCRAPE_URL_NBR_PRODUCTS' => scrape_url_nbr_products,
           'SCRAPE_URL_NBR_PRODUCTS_PG1' => scrape_url_nbr_products_pg1,
           'rank' => i + 1,
+          'price' => prices[i][0],
           'page' => page['vars']['page']
       }
 
