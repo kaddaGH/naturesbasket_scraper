@@ -92,7 +92,7 @@ product_details = {
     # - - - - - - - - - - -
     SCRAPE_INPUT_TYPE: page['vars']['input_type'],
     SCRAPE_INPUT_SEARCH_TERM: page['vars']['search_term'],
-    SCRAPE_INPUT_CATEGORY: page['vars']['input_type'] == 'taxonomy' ? "Energy Drinks & Milk Additives": '-',
+    SCRAPE_INPUT_CATEGORY: page['vars']['input_type'] == 'taxonomy' ? "Sports & Energy Drinks": '-',
     SCRAPE_URL_NBR_PRODUCTS: page['vars']['SCRAPE_URL_NBR_PRODUCTS'],
     # - - - - - - - - - - -
     SCRAPE_URL_NBR_PROD_PG1: page['vars']['SCRAPE_URL_NBR_PRODUCTS_PG1'],
