@@ -61,9 +61,9 @@ end
 [title,description].each do |size_text|
   match = [
       /(\d+)\s?[xX]/,
-      /Pack of (\d+)/,
-      /Box of (\d+)/,
-      /Case of (\d+)/,
+      /Pack of (\d+)\s+/,
+      /Box of (\d+)\s+/,
+      /Case of (\d+)\s+/,
       /(\d+)\s?[Cc]ount/,
       /(\d+)\s?[Cc][Tt]/,
       /(\d+)[\s-]?Pack($|[^e])/,
