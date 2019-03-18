@@ -16,6 +16,11 @@ end
 
 products_ids.each_with_index do |product_id, i|
 
+  if i==25 and current_page==2
+
+
+
+
   pages << {
       page_type: 'product_details',
       method: 'GET',
@@ -33,12 +38,12 @@ products_ids.each_with_index do |product_id, i|
 
   }
 
-
+  end
 end
 
 
 # get next page
-if next_page_offset
+if next_page_offset and current_page<=2
 
   pages << {
       page_type: 'products_listing',
