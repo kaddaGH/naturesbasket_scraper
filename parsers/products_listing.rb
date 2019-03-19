@@ -16,9 +16,6 @@ end
 
 products_ids.each_with_index do |product_id, i|
 
-  if i==25 and current_page==2
-
-
 
 
   pages << {
@@ -38,7 +35,7 @@ products_ids.each_with_index do |product_id, i|
 
   }
 
-  end
+
 end
 
 
