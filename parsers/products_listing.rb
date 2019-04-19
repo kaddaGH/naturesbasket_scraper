@@ -16,7 +16,6 @@ end
 
 products_ids.each_with_index do |product_id, i|
 
-break 
 
   pages << {
       page_type: 'product_details',
@@ -40,7 +39,7 @@ end
 
 
 # get next page
-if next_page_offset and current_page<=2
+if next_page_offset and current_page<=30 # to prevent infinit loop
 
   pages << {
       page_type: 'products_listing',
