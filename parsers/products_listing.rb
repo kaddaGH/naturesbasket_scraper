@@ -15,13 +15,13 @@ else
 end
 
 products_ids.each_with_index do |product_id, i|
-break 
+
 
   pages << {
       page_type: 'product_details',
       method: 'GET',
       headers: ReqHeaders::REQ_HEADER,
-      url: "https://www.naturesbasket.co.in/Handlers/PopupProductDetailHandler.ashx?FillProductDetail=true&ProductVariantID=#{product_id[0]}&loadtype=popup&search=#{page['vars']['search_term']}&page=#{page['vars']['page']}&_rank=#{i + 1}",
+      url: "https://www.naturesbasket.co.in/Handlers/PopupProductDetailHandler.ashx?FillProductDetail=true&ProductVariantID=#{product_id[0]}&loadtype=popup&search=#{page['vars']['search_term']}&_page=#{page['vars']['page']}&_rank=#{i + 1}",
       vars: {
           'input_type' => page['vars']['input_type'],
           'search_term' => page['vars']['search_term'],
