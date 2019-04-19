@@ -15,7 +15,7 @@ else
 end
 
 products_ids.each_with_index do |product_id, i|
-
+break 
 
   pages << {
       page_type: 'product_details',
